@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GorkiBloom App</title>
+    <style>
+        /* Здесь мы будем писать красоту (цвета, шрифты) */
+        body {
+            background-color: #FFF0F5; /* Нежно-розовый бьюти фон */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+    <script src="https://telegram.org"></script>
+</head>
+<body>
+
+    <h1>🌸 GorkiBloom 🌸</h1>
+    <p>Выберите услугу для быстрой записи в Горках:</p>
+
+    <!-- Наша стильная кнопка -->
+    <button id="nails-btn" style="
+        background-color: #ff69b4; 
+        color: white; 
+        border: none; 
+        padding: 15px 30px; 
+        font-size: 18px; 
+        border-radius: 10px; 
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    ">💅 Ногтевой сервис</button>
+
+    <script>
+        // Инициализируем Web App Telegram
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Разворачиваем шторку приложения на весь экран телефона!
+
+        // Находим нашу кнопку по её ID
+        const button = document.getElementById('nails-btn');
+
+        // Вешаем на кнопку "слушатель клика"
+        button.addEventListener('click', () => {
+            // Отправляем секретную записку обратно в Python-бота!
+            tg.sendData("Выбрана услуга: Ногтевой сервис 💅");
+            tg.close(); // Автоматически закрываем мини-сайт после клика
+        });
+    </script>
+
+</body>
+</html>
